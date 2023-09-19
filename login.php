@@ -50,35 +50,3 @@
 </body>
 </html>
 
-<?php
-include "dbconn.php";
-
-if(isset($_POST['login']))
-{
-    $username = $_POST['uname'];
-    $password = $_POST['pass'];
-    $qry = "SELECT * FROM `admin` WHERE `username` = '$username' AND `password` = '$password';";
-    $run = mysqli_query($con,$qry);
-    $row = mysqli_num_rows($run);
-    if($row < 1)
-    {
-        ?>
-            <script>
-                alert("Invalid Logi!n");\
-                window.open('login.php',_self);
-            </script>
-        <?php
-    }
-    else
-    {
-        $data = mysqli_fetch_assoc($run);
-        $id = $data['id'];
-        // echo $id;
-        // session_start();
-        $_SESSION['uid'] = $id;
-        header('location:admin/admindash.php');
-    }
-
-}
-
-?>

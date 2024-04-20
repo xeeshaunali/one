@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect('localhost','root','toor','sms' );
+$con = mysqli_connect('localhost','root','toor','ctc' );
 if($con == false){
     // echo "Connection failed";
     ?>
